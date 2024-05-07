@@ -1,0 +1,15 @@
+NO ./wallTexture/francoma.png
+SO ./wallTexture/seroy.png
+WE ./wallTexture/west.png
+EA ./wallTexture/east.png
+
+C 100, 170, 255
+
+F 70, 45,  45
+
+1111111
+1000101
+10001011
+100S0001
+10001011
+11111111
