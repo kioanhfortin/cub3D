@@ -1,1 +1,48 @@
+# Ignorer les fichiers binaires et les objets
+*.o
+*.a
+*.so
+*.dylib
+
+# Ignorer les fichiers de compilation
+*.out
+*.exe
+
+# Ignorer les fichiers générés par les éditeurs de texte et les IDE
+*~
+*.swp
+*.swo
+*.DS_Store
+
+# Ignorer les fichiers de logs
+*.log
+
+# Ignorer les fichiers de configuration spécifique à l'environnement
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignorer les fichiers de bibliothèques tierces
+libmlx.a
+libmlx.so
+libmlx.dylib
+
+# Ignorer les dossiers de build
+build/
+bin/
+obj/
+
+# Ignorer les fichiers spécifiques à MLX
+mlx_linux/
+mlx_mac/
+mlx_mingw/
 MLX42/
+
+# Si tu utilises CMake, ignorer les dossiers et fichiers générés par CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CMakeLists.txt.user
+
+# Ignorer les fichiers de débogage
+*.dSYM/
