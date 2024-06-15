@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_img_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 18:48:55 by kfortin           #+#    #+#             */
-/*   Updated: 2024/04/30 19:26:53 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 14:20:25 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_put_pixel(void *param)
 		{
 			if (data->map[y][i] == '0')
 				color = get_rgba(88, 24, 69, 255);
-			else if (data->map[y][i] == '1')
+			else if (data->map[y][i] == '1' || data->map[y][i] == '2')
 				color = get_rgba(218, 247, 166, 255);
 			else
 				color = get_rgba(144, 12, 63, 255);

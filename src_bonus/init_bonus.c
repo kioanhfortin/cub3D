@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:23:47 by seroy             #+#    #+#             */
-/*   Updated: 2024/04/30 19:28:15 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 17:40:41 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_path_and_texture(t_data *data)
 	data->s_buf = NULL;
 	data->e_buf = NULL;
 	data->o_buf = NULL;
+	data->cat_buf = NULL;
 }
 
 void	init_struct(t_data *data)
@@ -84,6 +85,8 @@ void	init_ray(t_ray *ray)
 	ray->side = 0;
 	ray->perpwalldist = 0.0;
 	ray->perpwalldist2 = 0.0;
+	ray->perpwalldistcat = -1.0;
+	ray->move = 0;
 	ray->raydirx = 0.0;
 	ray->raydiry = 0.0;
 	ray->curr_x = 0;

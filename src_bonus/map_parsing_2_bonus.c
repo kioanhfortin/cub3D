@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_2_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:23:53 by seroy             #+#    #+#             */
-/*   Updated: 2024/05/02 11:32:12 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 17:53:27 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int	flood_fill(char **map, int x, int y)
 {
 	if (x < 0 || y < 0)
 		return (-1);
-	if (map[y] == NULL || map[y][x] == '\n'
-		|| map[y][x] == 0)
+	if (map[y] == NULL || map[y][x] == '\n' || map[y][x] == 0)
 		return (-1);
-	if (map[y][x] == '1' || map[y][x] == 'X' || map[y][x] == ' ')
+	if (map[y][x] == '1' || map[y][x] == 'X' || map[y][x] == ' ' || map[y][x] == '2')
 		return (0);
 	map[y][x] = 'X';
 	if (flood_fill(map, x + 1, y) == -1)

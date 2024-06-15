@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 18:49:20 by kfortin           #+#    #+#             */
-/*   Updated: 2024/04/30 19:26:42 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 17:46:57 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	clean_ray(t_ray *ray)
 {
 	ray->side = 0;
 	ray->perpwalldist = 0.0;
+	ray->perpwalldistcat = -1.0;
 	ray->raydirx = 0.0;
 	ray->raydiry = 0.0;
 	ray->deltadistx = 0;

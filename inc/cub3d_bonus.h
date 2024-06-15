@@ -6,7 +6,7 @@
 /*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:27:16 by seroy             #+#    #+#             */
-/*   Updated: 2024/04/30 19:08:40 by kfortin          ###   ########.fr       */
+/*   Updated: 2024/06/15 13:52:17 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
+# include <time.h>
 
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
@@ -65,6 +66,8 @@ typedef struct s_ray
 	int				side;
 	double			perpwalldist;
 	double			perpwalldist2;
+	double			perpwalldistcat; //Wwise variable
+	int				move; //Wwise variable
 	double			raydirx;
 	double			raydiry;
 	double			deltadistx;
@@ -123,10 +126,12 @@ typedef struct s_data
 	mlx_texture_t	*tex_wall_s;
 	mlx_texture_t	*tex_wall_e;
 	mlx_texture_t	*tex_wall_o;
+	mlx_texture_t	*tex_wall_cat;
 	uint32_t		**n_buf;
 	uint32_t		**s_buf;
 	uint32_t		**e_buf;
 	uint32_t		**o_buf;
+	uint32_t		**cat_buf;
 	float			x_ratio;
 	float			y_ratio;
 	int				src_x;
@@ -176,6 +181,7 @@ void				move_1(t_data *data);
 void				move_2(t_data *data);
 void				move_3(t_data *data);
 void				move_4(t_data *data);
+void 				ft_cat_sound(t_data *data);
 void				ft_hook(void *param);
 void				mouse_hook(void *param);
 void				ft_option(mlx_key_data_t keydata, void *param);
@@ -214,6 +220,7 @@ void				ft_floor_sky(t_data *data);
 int					get_rgba(int r, int g, int b, int a);
 
 void				ft_load_texture(t_data *data);
+mlx_texture_t 		*ft_random_cat_tex();
 void				ft_fill_bufs(t_data *data);
 uint32_t			**ft_buf_line_text(t_data *data, mlx_texture_t *tex_Wall_R,
 						uint32_t **buf);

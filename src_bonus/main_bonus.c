@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:23:50 by seroy             #+#    #+#             */
-/*   Updated: 2024/04/30 19:28:21 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:06:35 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void ft_cat_sound(t_data *data)
+{
+	if (data->ray->perpwalldistcat < 1.0 && data->ray->perpwalldistcat > -1)
+	{
+		printf("CAT SOUND ON\n");
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	int i;
 
+	i = 0;
 	ft_file_format(argc, argv[1]);
 	init_struct(&data);
 	ft_read_file(&data, argv);

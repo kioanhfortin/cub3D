@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_2_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 18:49:26 by kfortin           #+#    #+#             */
-/*   Updated: 2024/04/30 19:26:46 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 17:30:04 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,27 @@ void	ft_dda(t_data *data, t_ray *ray)
 	while (hit == 0)
 	{
 		ft_forward_until_hit(ray);
-		if (ray->mapx >= 0 && ray->mapy <= data->height
-			&& data->map[(int)ray->mapy][(int)ray->mapx] == '1')
+		if (ray->mapx >= 0 && ray->mapy <= data->height && (data->map[(int)ray->mapy][(int)ray->mapx] == '1' || data->map[(int)ray->mapy][(int)ray->mapx] == '2'))
 			hit = 1;
 	}
 	if (ray->side % 2 == 0)
+	{
 		ray->perpwalldist = (ray->sidedistx - ray->deltadistx);
+		if (data->map[(int)ray->mapy][(int)ray->mapx] == '2' && ray->move == 0)
+		{
+			ray->move = 1;
+			ray->perpwalldistcat = (ray->sidedistx - ray->deltadistx);
+		}
+	}
 	else
+	{
 		ray->perpwalldist = (ray->sidedisty - ray->deltadisty);
+		if (data->map[(int)ray->mapy][(int)ray->mapx] == '2' && ray->move == 0)
+		{
+			ray->move = 1;
+			ray->perpwalldistcat = (ray->sidedisty - ray->deltadisty);
+		}
+	}
 }
 
 void	ft_rayon(t_data *data, t_ray *ray)

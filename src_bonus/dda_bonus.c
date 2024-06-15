@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 18:48:55 by kfortin           #+#    #+#             */
-/*   Updated: 2024/04/30 19:26:50 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:02:49 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_trace_wall(t_data *data, t_ray *ray)
 		if (ray->line->y1 >= WINDOW_HEIGHT)
 			ray->line->y1 += WINDOW_HEIGHT - 1;
 		trace_line(data, ray->line);
+		ft_cat_sound(data);
 		ray->line->x++;
 		clean_data(data);
 		clean_line(ray->line);
@@ -38,25 +39,33 @@ void	trace_line(t_data *data, t_line *line)
 	int	buf_x;
 
 	buf_x = 0;
-	if (data->ray->side == 1)
+	if (data->map[(int)data->ray->mapy][(int)data->ray->mapx] == '2')
 	{
-		buf_x = get_hit(data, data->tex_wall_s);
-		ft_get_texture(data, line, data->s_buf, buf_x);
-	}
-	else if (data->ray->side == 2)
-	{
-		buf_x = get_hit2(data, data->tex_wall_o);
-		ft_get_texture(data, line, data->o_buf, buf_x);
-	}
-	else if (data->ray->side == 3)
-	{
-		buf_x = get_hit(data, data->tex_wall_n);
-		ft_get_texture(data, line, data->n_buf, buf_x);
+		buf_x = get_hit(data, data->tex_wall_cat);
+		ft_get_texture(data, line, data->cat_buf, buf_x);
 	}
 	else
 	{
-		buf_x = get_hit2(data, data->tex_wall_e);
-		ft_get_texture(data, line, data->e_buf, buf_x);
+		if (data->ray->side == 1)
+		{
+			buf_x = get_hit(data, data->tex_wall_s);
+			ft_get_texture(data, line, data->s_buf, buf_x);
+		}
+		else if (data->ray->side == 2)
+		{
+			buf_x = get_hit2(data, data->tex_wall_o);
+			ft_get_texture(data, line, data->o_buf, buf_x);
+		}
+		else if (data->ray->side == 3)
+		{
+			buf_x = get_hit(data, data->tex_wall_n);
+			ft_get_texture(data, line, data->n_buf, buf_x);
+		}
+		else
+		{
+			buf_x = get_hit2(data, data->tex_wall_e);
+			ft_get_texture(data, line, data->e_buf, buf_x);
+		}
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seroy <seroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kfortin <kfortin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:23:41 by seroy             #+#    #+#             */
-/*   Updated: 2024/04/30 19:27:49 by seroy            ###   ########.fr       */
+/*   Updated: 2024/05/20 16:59:00 by kfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	ft_free_texture(t_data *data)
 	free_tex_buf(data->s_buf);
 	free_tex_buf(data->e_buf);
 	free_tex_buf(data->o_buf);
+	free_tex_buf(data->cat_buf);
 	if (data->tex_wall_n)
 		mlx_delete_texture(data->tex_wall_n);
 	if (data->tex_wall_s)
@@ -99,4 +100,6 @@ void	ft_free_texture(t_data *data)
 		mlx_delete_texture(data->tex_wall_e);
 	if (data->tex_wall_o)
 		mlx_delete_texture(data->tex_wall_o);
+	if (data->tex_wall_cat)
+		mlx_delete_texture(data->tex_wall_cat);
 }
